@@ -1,335 +1,357 @@
 ---
-sidebar_label: 'Lesson 4: Operators and Conditionals'
+sidebar_label: 'Lesson 4: Dictionaries'
 sidebar_position: 4
 ---
-# Operators and Conditionals
+# Dictionaries
 
 ## Table of Contents
-- [Operators in Python](#operators-in-python)
-- [Learning to Use Conditionals `if`, `elif`, `else`](#learning-to-use-conditionals)
-- [`if` Conditional](#if-conditional)
-- [`if` and `else` Conditional](#if-else-conditional)
-- [`if`, `elif`, and `else`Conditionals](#if-elif-else-conditional)
+- [Create Dictionaries](#create-dictionaries)
+- [Accessing a Dictionary](#accessing-a-dictionary)
+- [Modifying Dictionary Data](#modifying-dictionary-data)
+- [Deleting Dictionary Data](#deleting-dictionary-data)
+- [Dictionary methods](#dictionary-methods)
+- [Iterating through Dictionaries](#iterating-through-dictionaries)
 
 ---
 
-## Operators in Python
+## Create Dictionaries
+### Description
+A dictionary in Python is a collection of **key-value pairs** where each `key` is unique. It is an unordered, mutable, and indexed data structure that allows for fast retrieval, insertion, and deletion of elements. Keys are typically strings or numbers, and `values` can be of any data type
 
-Operators are mathematical symbols that perform a specific operation between operands and have a specific function. Operators can receive variable operands.
+A dictionary structure allows us to map values using key-value pairs in an organized manner, creating a visually ordered database.
+
+#### Example 1:
+Store `values` (Pedro, 49, Male, Yes, No, 2, 25000€) in `keys` (Name, Age, Gender, Children, Married, Number of Children, Income) for a more organized and accessible manner.
+
+```python
+# Example of a dictionary
+my_dict = {
+    "Name": "Pedro",
+    "Age": 49,
+    "Gender": "Male",
+    "Children": "Yes",
+    "Married": "No",
+    "Number of children": 2,
+    "Income": "25000€"
+}
+
+# Accessing a value by its key
+print(my_dict["Name"])
+```
+**Console:**
+```console
+Pedro
+```
+
+---
+
+#### Example 2: 
+#### Scenario:
+Conducting a survey of 100 people, identifying each person by name, age, and gender as keys, and their responses as values: Patricia, 35, Female.
+
+| Key | Value |
+| --- | --- |
+| Name | Patricia |
+| Age | 35 |
+| Gender | Female |
+
+---
+
+### Syntax of Dictionaries
+To create a dictionary, use a similar approach as lists. Name the dictionary followed by `=` and group key-value pairs within braces `{}` **separated by commas**.
+
+#### Example 1:
+```python
+people = {
+    "Name": "Patricia",
+    "Age": 35,
+    "Gender": "Female"
+}
+```
+#### Example 2:
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "license_plate": "1234AAA"
+}
+```
+---
+
+## Accessing a Dictionary
+In the previous case we only have 3 data, but let's imagine that there were thousands of data about a particular car and we must "dig" there to only get one. Know if it has passed the MOT, name of the owner, etc. Let's make a complete template of our car:
+
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2022",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid"
+}
+```
+### Accessing Data
+As you can see, we have placed a list within the “extras” key, this is possible and also very useful to be able to store several values ​​in a key.
+
+Now once we store the data in the dictionary we are going to access it, for that there are different ways, suppose we want to print only the car model, we do it using the `print()` function.
+
+Below the code we place a print followed by the name that we gave to the dictionary in this case car and then in square brackets the key we want to access, which in this case as we said before will be the model.
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid"
+}
+
+#To see the value of the model key
+print(car["model"])
+```
+**Console:**
+```console
+Ibiza 2024
+```
+**Remember that all elements followed by the function are enclosed in parentheses.**
+
+### Accessing Lists within Dictionaries
+It is done in the same way that we used before to print the value of a key, but **adding the indexes of the list that we want to print**.
+
+Example with the car extras that are stored in the extras `key`, and we gave it a list as a `value`:
 
 #### Example:
-For SUMMATION, the operator used is the “plus” symbol (+), and we can add numbers, letters, or variables. These numbers or variables are the operands. When we say they can be dynamic, we refer to variables that can change their value, but the operator will perform the same operation.
-
----
-
-### Arithmetic Operators
-
-Arithmetic operators are those used to perform simple mathematical operations.
-
-#### List of Arithmetic Operators:
-- Addition (`+`): Adds two operands.
 ```python
-a = 5
-b = 3
-result = a + b  # result is 8
-```
-- Subtraction (`-`): Subtracts the second operand from the first.
- ```python
-a = 5
-b = 3
-result = a - b  # result is 2
-```
-- Multiplication (`*`): Multiplies both operands.
- ```python
-a = 5
-b = 3
-result = a * b  # result is 15
-```
-- Division (`/`): Divides the numerator by the denominator.
- ```python
-a = 5
-b = 3
-result = a / b  # result is 1.666...
-```
-- Modulus (`%`): Returns the remainder of the division.
- ```python
-a = 5
-b = 3
-result = a % b  # result is 2
-```
-- Exponentiation (`**`): Raises the first operand to the power of the second.
- ```python
-a = 5
-b = 3
-result = a ** b  # result is 125
-```
-- Floor Division (`//`): Performs division and returns the largest integer less than or equal to the quotient.
- ```python
-a = 5
-b = 3
-result = a // b  # result is 1
-```
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid"
+}
 
----
-
-### Comparison Operators
-
-Comparison operators are those used to compare values and will return `True` / `False` as the result of the condition.
-
-#### List of Comparison Operators:
-- Equal (`==`): Returns True if both operands are equal.
- ```python
-a = 5
-b = 3
-result = (a == b)  # result is False
-```
-- Not equal (`!=`): Returns True if operands are not equal.
- ```python
-a = 5
-b = 3
-result = (a != b)  # result is True
-```
-- Greater than (`>`): Returns True if the left operand is greater than the right.
- ```python
-a = 5
-b = 3
-result = (a > b)  # result is True
-```
-- Less than (`<`): Returns True if the left operand is less than the right.
- ```python
-a = 5
-b = 3
-result = (a < b)  # result is False
-```
-- Greater than or equal to (`>=`): Returns True if the left operand is greater than or equal to the right.
- ```python
-a = 5
-b = 3
-result = (a >= b)  # result is True
-```
-- Less than or equal to (`<=`): Returns True if the left operand is less than or equal to the right.
- ```python
-a = 5
-b = 3
-result = (a <= b)  # result is False
-```
-
----
-
-### Assignment Operators
-
-Assignment operators are those we use to assign a value to a variable, list, tuple, set, etc.
-
-#### List of Assignment Operators:
-- Assign (`=`): Assigns the value on the right to the variable on the left.
- ```python
-a = 5  # a is 5
-```
-- Add and assign (`+=`): Adds the right operand to the left operand and assigns the result to the left operand.
- ```python
-a = 5
-a += 3  # a is now 8
-```
-- Subtract and assign (`-=`): Subtracts the right operand from the left operand and assigns the result to the left operand.
- ```python
-a = 5
-a -= 3  # a is now 2
-```
-- Multiply and assign (`*=`): Multiplies the left operand by the right operand and assigns the result to the left operand.
- ```python
-a = 5
-a *= 3  # a is now 15
-```
-- Divide and assign (`/=`): Divides the left operand by the right operand and assigns the result to the left operand.
- ```python
-a = 5
-a /= 3  # a is now 1.666...
-```
-- Modulus and assign (`%=`): Performs modulus operation on the left operand by the right operand and assigns the result to the left operand.
- ```python
-a = 5
-a %= 3  # a is now 2
-```
-- Exponentiation and assign (`**=`): Raises the left operand to the power of the right operand and assigns the result to the left operand.
- ```python
-a = 5
-a **= 3  # a is now 125
-```
-- Floor division and assign (`//=`): Performs floor division on the left operand by the right operand and assigns the result to the left operand.
- ```python
-a = 5
-a //= 3  # a is now 1
-```
----
-
-### Logical Operators
-
-Logical operators are `and` (y), `or` (o), `not` (no) and are used to check if two or more operands are true or false, returning True or False as a result. They are often used in conditionals to return a boolean by comparing multiple elements.
-
-#### List of Logical Operators:
-- `and`: Returns `True` if both operands are true.
- ```python
-a = True
-b = False
-result = a and b  # result is False
-```
-- `or`: Returns `True` if at least one of the operands is true.
- ```python
-a = True
-b = False
-result = a or b  # result is True
-```
-- `not`: Reverses the boolean value of the operand. If the operand is `True`, it returns `False`, and vice versa.
- ```python
-a = True
-result = not a  # result is False
-```
----
-
-### Special Operators
-
-There are other special operators that we will commonly use in loops or to check if a variable is exactly equal to another, or to know if an element is within others, etc.
-
-#### List of Special Operators:
-- `is`: Evaluates if both sides have the same identity.
- ```python
-a = [1, 2, 3]
-b = a
-result = (a is b)  # result is True
-```
-- `is not`: Evaluates if both sides have different identities.
- ```python
-a = [1, 2, 3]
-b = [1, 2, 3]
-result = (a is not b)  # result is True
-```
-- `in`: Evaluates if a value is present in a sequence.
- ```python
-a = [1, 2, 3]
-result = (2 in a)  # result is True
-```
-- `not in`: Evaluates if a value is not present in a sequence.
- ```python
-a = [1, 2, 3]
-result = (4 not in a)  # result is True
-```
-
----
-
-## Learning to Use Conditionals `if`, `elif`, `else`
-
-Conditionals `if`, `else`, `elif` in Python are used to execute an instruction if one or more conditions are met. A conditional is like the moment a decision must be made in our program. Depending on the decision, one thing will happen, another, or nothing.
-
-### Example 1:
--**Seller:** The book costs 25€ (If the buyer has 25€ or more, sell. Otherwise, don’t sell.)
-
--**Buyer:** I only have 20€ (Buyer’s money = 20)
-
--**Seller:** Go get more money. (Cannot sell)
-
-```python
-money = 20
-
-if money >= 25:
-    print("Sell the book")
-else:
-    print("Do not sell the book")
+print(car["extras"][1])
 ```
 **Console:**
 ```console
-Do not sell the book
+proximity sensors
 ```
-If the buyer's money is equal to or greater than 25€, the condition is true. The buyer has 20€, so the condition is false.
+This prints "proximity sensors". **Indicate the index of the list after the key that holds the list**.
 
-**When the buyer has 25€ or more then the book will be sold to them:** 
-### Example 2:
--**Seller:** The book costs 25€ (If the buyer has 25€ or more, sell. Otherwise, don’t sell.)
-
--**Buyer:** I have 26€ (Buyer’s money = 26)
-
--**Seller:** Perfect, you have enough money. (Can sell)
-```python
-money = 26 #Now the buyer has more than 25€
-
-if money >= 25:
-    print("Sell the book")
-else:
-    print("Do not sell the book")
-```
-**Console:**
-```console
-Sell the book
-```
-### Translation:
-- `if` translates to "if":
-
-    - If the user enters the store, then offer products.
-    - If the user has money, then sell.
-    - If the user has their face covered, then call security.
-
-- `else` translates to "otherwise":
-
-    - If the user enters the store, then offer products; else, do nothing.
-    - If the user has money, then sell; else, invite them to leave.
-    - If the user has their face covered, then call security; else, offer products.
-
-
-- `elif` translates to "else if":
-
-    - If the user enters the store, then offer products; if they are a supplier, hide; else, do nothing.
-    - If the user has money, then sell; if it’s in cents, offer cheap things; else, invite them to leave.
-    - If the user has their face covered, then call security; if it's a child, do nothing; else, offer products.
 ---
 
-## `if` Conditional
-To use `if`, simply add it in the following order:
+## Modifying Dictionary Data
+### Adding a Key-Value Pair
+We are now going to add the `key` **"price"** and the `value` **14000** to this dictionary, remembering that the keys are unique, that is:
+- **Since the price key does not exist, it will be added**.
+- **If it already existed, only the value would be modified**. 
+
+We add it using the following syntax:
 
 ```python
-note = 6
-if note >= 5:
-    print("You passed")
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid"
+}
+
+car["price"] = 14000
 ```
-**Console:**
-```console
-You passed
+### Modifying a Value
+To change the price `value` from **14000** to **17000**:
+
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+car["price"] = 17000
 ```
-This prints "You passed" because the condition of the `if` is met.
+### Replacing a Key
+To change the `key` **"price"** to **"cost"**:
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+car["cost"] = car.pop("price")
+```
+This adds the "cost" key and removes the "price" key, preserving the value.
 
 ---
-## `if` and `else` Conditional
-After an `if` statement, we can add an `else` ("otherwise") to execute another code **if the condition is not met**:
 
+## Deleting Dictionary Data
+To delete a pair `key: value` we can use the `del()` function:
 ```python
-note = 3
-if note >= 5:
-    print("You passed")
-else:
-    print("You failed")
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+del(car["color"])
+print(car)
 ```
 **Console:**
 ```console
-You failed
+{"brand": "seat", "model": "Ibiza 2024", "license_plate": "1234AAA", "owner": "Alfredo Martínez García", "extras": ["sunroof", "proximity sensors"], "ITV": "Valid", "price": 14000}
 ```
 
-This prints "You failed" because the condition of the `if` is not met, so the interpreter directly executes the `else`.
+It is important to remember that `del()` is a function, so the **name of the dictionary and the key must be in parentheses**. `del()` is a predefined just like `print()`.
 
 ---
-## `if`, `elif`, and `else` Conditionals
 
-The structure is always `if`, then `elif`, and finally `else` (which executes if none of the previous `if`/`elif` conditions are met):
+## Dictionary methods
+### `get()`method
+The `get()` method retrieves the value of a specified key, and can return a default value if the key does not exist.
 
+#### Example 1
 ```python
-note = 8
-if note < 5: #Always if first
-    print("Failed")
-elif note >= 9: #Then as many elif as needed
-    print("Excellent")
-elif note >= 7:
-    print("Very Good")
-else: #The last one will always be else
-    print("Passed")
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+#If the "owner" key exits, it returns the value
+#If "owner" key does not exist, it returns "No owner"
+print(car.get("owner", "No owner"))
 ```
 **Console:**
 ```console
-Very Good
+Alfredo Martínez García
+```
+If "owner" does not exist, it returns "No owner".
+#### Example 2
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+#If the "owner" key exits, it returns the value
+#If "owner" key does not exist, it returns "No owner"
+print(car.get("owner", "No owner"))
+```
+**Console:**
+```console
+No owner
+```
+
+### `keys()` method 
+Prints only the **keys** of the dictionary.
+
+#### Example
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+print(car.keys())
+```
+**Console:**
+```console
+dict_keys(["color", "brand", "model", "license_plate", "owner", "extras", "ITV", "price"])
+```
+
+### `values()` method
+Prints only the **values** of the dictionary.
+
+#### Example
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+print(car.values())
+```
+**Console:**
+```console
+dict_values(["red", "seat", "Ibiza 2024", "1234AAA", "Alfredo Martínez García", ["sunroof", "proximity sensors"], "Valid", 14000])
+```
+---
+
+## Iterating through Dictionaries
+The `for` loop allows iterating through dictionaries, operating with both keys and values.
+
+Using the `items()` method, which returns a list of the dictionary's keys and values.
+
+#### Example
+```python
+car = {
+    "color": "red",
+    "brand": "seat",
+    "model": "Ibiza 2024",
+    "license_plate": "1234AAA",
+    "owner": "Alfredo Martínez García",
+    "extras": ["sunroof", "proximity sensors"],
+    "ITV": "Valid",
+    "price": 14000
+}
+
+for key, value in car.items():
+    print(key, value)
+```
+**Console:**
+```console
+color red
+brand seat
+model Ibiza 2024
+license_plate 1234AAA
+owner Alfredo Martínez García
+extras ['sunroof', 'proximity sensors']
+ITV Valid
+price 14000
 ```

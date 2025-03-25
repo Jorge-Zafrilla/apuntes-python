@@ -10,6 +10,7 @@ sidebar_position: 5
 - [Bucle `while`](#bucle-while)
 - [Control de Bucles: `break`, `continue` y `pass`](#control-de-bucles-break-continue-y-pass)
 - [Diferencias entre `for` y `while`](#diferencias-entre-for-y-while)
+- [Métodos y funciones útiles para combinar con bucles](#métodos-y-funciones-útiles-para-combinar-con-bucles)
 
 ---
 
@@ -203,3 +204,52 @@ Current value of the variable: 0
     - **Propósito**: Un bucle `while` se utiliza para repetir un bloque de código mientras una condición sea verdadera.
     - **Control de Iteración**: El número de iteraciones está controlado por una condición, que se evalúa antes de cada iteración. Puede potencialmente llevar a un bucle infinito si la condición nunca se vuelve falsa.
     - **Caso de Uso**: Ideal para escenarios donde no se conoce de antemano el número de iteraciones y depende de que se cumpla una cierta condición durante la ejecución.
+
+---
+## Métodos y funciones útiles para combinar con bucles
+### `len()`
+Devuelve la longitud del elemento.
+```python
+text = "Happy Birthday to you"
+print(len(text))
+```
+**Consola:**
+```console
+21
+```
+Si se usa con una cadena de texto, te devuelve el **número de caracteres** (contando los espacios en blanco).
+
+```python
+c = ["Batoi",34,275,"AO","NBA"]
+print(len(c))
+```
+**Consola:**
+```console
+5
+```
+Si se utiliza con una lista, **te devuelve el número de elementos que contiene la lista**.
+
+### `split()`
+Divide una cadena de texto y la convierte en una lista, utilizando el elemento que se escriba dentro del paréntesis como carácter separador. Es necesario utilizar una nueva variable para que guarde esta nueva lista.
+
+Si no ponemos nada en el paréntesis el carácter que utiliza para separar es el **espacio en blanco**.
+```python
+t = "Where are you from?"
+new_list = t.split()
+print(new_list)
+```
+**Consola:**
+```console
+["Where","are","you","from?"]
+```
+
+```python
+text = "Well. Let's start. Go"
+x = text.split(".")
+print(x)
+```
+**Consola:**
+```console
+["Well","Let's start","Go"]
+```
+En este ejemplo separa la cadena cuando encuentra un punto `.` porque es lo que hemos indicado.

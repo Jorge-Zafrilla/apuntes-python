@@ -9,6 +9,7 @@ sidebar_position: 1
 - [Función `print()`](#función-print)
 - [Función `input()`](#función-input)
 - [Estructura y Tipos de Datos](#estructura-y-tipos-de-datos)
+- [Tipos de variables](#tipos-de-variables)
 
 ---
 
@@ -192,3 +193,83 @@ print(type(my_dict))
 ```console
 <class 'dict'>
 ```
+---
+## Tipos de variables
+### Descripción
+Una variable es un espacio en un sistema de almacenamiento que recibe un **identificador** y contiene información que puede ser conocida o desconocida. En otras palabras, una variable puede verse como una caja donde almacenamos e intercambiamos datos de tipos específicos.
+
+![Variables example](img/variables-ex.png)
+
+### Declaración de Variables
+En Python, al declarar una variable, no necesitamos especificar el tipo de datos que vamos a almacenar en ella, a diferencia de otros lenguajes de programación.
+#### Ejemplos:
+```python
+box1 = "Hello"
+box2 = 18
+box3 = 18.1
+box4 = True
+```
+![Types of variables](img/typesofvariable.png)
+
+Como vemos en el código, primero se escribe el nombre de la variable, seguido del operador `=` (que en estos casos es un operador de asignación, no un signo de igualdad), y luego los datos que almacenará. Dependiendo de los datos que almacenemos en ella, Python determinará el tipo de la variable.
+
+### Sintaxis
+**Si los datos a almacenar son una `cadena de texto`, recuerda que deben ir entre comillas.**
+
+Siempre debes indicar primero el nombre de la variable y luego su contenido, así:
+```python
+num = 17
+```
+Los nombres de las variables son secuencias de letras y números, ya sean mayúsculas o minúsculas, pero **siempre deben comenzar con una letra**. Una variable **nunca debe contener espacios**; para separar palabras, podemos usar un guion bajo `_`.
+
+### Tipos de variables
+Hay 3 tipos más comunes de variables:
+
+- **Numéricas:** Almacenan números; dentro de esta categoría, podemos encontrar subtipos como `int`, `float`, `long` y `complex`.
+- **Texto:** Son las clásicas variables que almacenan cadenas de texto como `string` y `char`.
+- **Booleanas:** Almacenan un valor de True o False como `bool`.
+
+Pero en Python, las variables también pueden ser *listas*, *diccionarios*, *tuplas* (que veremos más adelante). Casi cualquier cosa puede ser almacenada en ellas.
+
+### Función `type()`
+Puedes determinar el tipo de una variable utilizando la función integrada `type()`, que permite conocer el tipo de una variable en un momento específico.
+Para llamar a la función `type()` simplemente escribimos la función y le pasamos el nombre de la variable como argumento dentro de los paréntesís, así:
+```python
+box1 = "Hello"
+type(box1)
+```
+**Consola:**
+```console
+<class 'str'>
+```
+Al ejecutar el programa, devolverá el tipo de la variable.
+```python
+box1 = "Hello"
+box2 = 18
+box3 = 18.1
+box4 = True
+
+print(type(box1))
+print(type(box2))
+print(type(box3))
+print(type(box4))
+```
+**Consola:**
+```console
+<class 'str'>
+<class 'int'>
+<class 'float'>
+<class 'bool'>
+```
+### Tamaño en memoria de los tipos de datos
+Cada tipo de variable ocupa un espacio en la memoria, que es la cantidad de bytes que necesita para almacenar su valor. El número de bytes que ocupa un tipo de dato depende del valor y tipo de dato.
+
+- **int**: Generalmente, en Python 3, un entero ocupa 28 bytes para pequeños valores. El tamaño aumenta dependiendo de lo grande que sea el número.
+- **float**: Un número flotante suele ocupar 24 bytes.
+- **str**: El tamaño en bytes de una cadena depende de la longitud del texto y de la codificación utilizada. Por ejemplo, una cadena vacía ocupa 49 bytes, pero crece según el número de caracteres.
+- **bool**: Una variable booleana ocupa 24 bytes.
+
+Estos tamaños pueden variar en diferentes implementaciones de Python, ya que el lenguaje optimiza el uso de la memoria según la plataforma.
+
+#### ¿Qué significa esto?
+Cada vez que declaramos una variable, Python reserva un espacio en la memoria para almacenar su valor. El número de bytes en memoria se refiere a cuánta capacidad está utilizando esa variable en el sistema para poder ser almacenada y manipulada. Por ejemplo, una variable de tipo `int` pequeña puede ocupar 28 bytes, pero a medida que aumenta el valor de ese entero, el número de bytes necesarios para almacenarlo también aumenta.

@@ -10,6 +10,7 @@ sidebar_position: 5
 - [`while` Loop](#while-loop)
 - [Loop Control: `break`, `continue`, and `pass`](#loop-control)
 - [Differences between `for` and `while`](#differences-for-and-while)
+- [Useful Methods and Functions to Combine with Loops](#useful-methods-and-functions-to-combine-with-loops)
 
 ---
 
@@ -203,3 +204,52 @@ Current value of the variable: 0
     - **Purpose**: A `while` loop is used to repeat a block of code as long as a condition is true.
     - **Iteration Control**: The number of iterations is controlled by a condition, which is evaluated before each iteration. It can potentially lead to an infinite loop if the condition never becomes false.
     - **Use Case**: Ideal for scenarios where the number of iterations is not known beforehand and depends on a certain condition being met during the execution.
+
+---
+## Useful Methods and Functions to Combine with Loops
+### `len()`
+Returns the length of an element.
+```python
+text = "Happy Birthday to you"
+print(len(text))
+```
+**Console:**
+```console
+21
+```
+If used with a string, it returns the **number of characters** (including spaces).
+
+```python
+c = ["Batoi",34,275,"AO","NBA"]
+print(len(c))
+```
+**Console:**
+```console
+5
+```
+If used with a list, it returns the **number of elements in the list**.
+
+### `split()`
+Splits a string into a list, using the character specified inside the parentheses as the separator. It is necessary to use a new variable to store the resulting list.
+
+If nothing is specified inside the parentheses, the default separator is a **space**.
+```python
+t = "Where are you from?"
+new_list = t.split()
+print(new_list)
+```
+**Console:**
+```console
+["Where","are","you","from?"]
+```
+
+```python
+text = "Well. Let's start. Go"
+x = text.split(".")
+print(x)
+```
+**Console:**
+```console
+["Well","Let's start","Go"]
+```
+In this example, the string is split wherever a period `.` is found, as specified.

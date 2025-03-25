@@ -8,20 +8,20 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Aplicaciones Ofimáticas - English',
-  tagline: '1º SMX',
-  favicon: 'img/logobatoi.png',
+  title: 'Apuntes Python',
+  tagline: 'Sistemas Empotrados',
+  favicon: 'img/logo_upv.png',
 
   // Set the production url of your site here
   url: 'https://Jorge-Zafrilla.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/apuntes-AOIngles/',
+  baseUrl: '/apuntes-python/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Jorge-Zafrilla', // Usually your GitHub org/user name.
-  projectName: 'apuntes-AOIngles', // Usually your repo name.
+  projectName: 'apuntes-python', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -30,7 +30,7 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'es',
     locales: ['en', 'es'],
   },
 
@@ -42,17 +42,14 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+        // Blog para más adelante
+        /*
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+        */
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -64,13 +61,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/logobatoi.png',
+      image: 'img/logo_upv.png',
       navbar: {
-        title: 'Aplicaciones Ofimáticas',
+        title: 'Sistemas Empotrados',
         logo: {
           alt: 'Logo Batoi',
-          src: 'img/logobatoi.png',
-          srcDark: 'img/logobatoidark.png', 
+          src: 'img/logo_upv.png',
+          srcDark: 'img/logo_upv.png', 
         },
         items: [
           {
@@ -79,9 +76,8 @@ const config = {
             position: 'left',
             label: 'Apuntes',
           },
-
-          {to: '/blog', label: 'Anuncios', position: 'left'},
-          {to: '/apuntes', label: 'Apuntes', position: 'left'},
+          //Blog en el navegador
+          //{to: '/blog', label: 'Anuncios', position: 'left'},
           {
             type: 'localeDropdown', 
             position:'right',
@@ -97,11 +93,11 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Apuntes',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Apuntes Python',
+                to: '/docs/category/python-notes',
               },
             ],
           },
@@ -109,21 +105,21 @@ const config = {
             title: 'Contacto',
             items: [
               {
-                html: '<span>Email: <strong>j.zafrillamunoz@edu.gva.es</strong></span>',
+                html: '<span>Email: <strong>jorzafmu@upv.edu.es</strong></span>',
               },
             ],
           },
           {
-            title: 'Aules',
+            title: 'PoliformaT',
             items: [
               {
-                label: 'Aules del módulo',
-                href: 'https://aules.edu.gva.es/fp/',
+                label: 'Acceso a PoliformaT',
+                href: 'https://poliformat.upv.es/portal/site/GRA_14592_2024',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Aplicaciones Ofimáticas - Jorge Zafrilla Muñoz.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Apuntes Python - Jorge Zafrilla Muñoz.`,
       },
       prism: {
         theme: prismThemes.github,

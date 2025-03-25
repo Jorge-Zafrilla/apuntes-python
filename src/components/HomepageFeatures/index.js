@@ -7,32 +7,20 @@ import anuncioslogo from '@site/static/img/logo-anuncios.png';
 
 const FeatureList = [
   {
-    title: 'Apuntes del curso',
+    title: 'Conceptos clave',
     Img: apunteslogo,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Explicaciones claras y ordenadas de los fundamentos de Python: variables, estructuras de control, funciones, clases, manejo de errores y más..
       </>
     ),
   },
   {
-    title: 'Actividades',
+    title: 'Casos de uso',
     Img: actividadeslogo,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Anuncios',
-    Img: anuncioslogo,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Ejemplos prácticos y pequeños programas que te ayudan a ver cómo aplicar los conceptos en situaciones reales.
       </>
     ),
   },
@@ -40,12 +28,12 @@ const FeatureList = [
 
 function Feature({Img, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--6')}>
       <div className="text--center">
         <img src={Img} className={styles.featureImg} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+        <Heading as="h2">{title}</Heading>
         <p>{description}</p>
       </div>
     </div>

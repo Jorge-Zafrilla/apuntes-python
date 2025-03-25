@@ -9,6 +9,7 @@ sidebar_position: 1
 - [`print()` Function](#print-function)
 - [`input()` Function](#input-function)
 - [Structure and Data Types](#structure-and-data-types)
+- [Types of variables](#types-of-variables)
 
 ---
 ## Introduction to Python
@@ -192,3 +193,83 @@ print(type(my_dict))
 ```console
 <class 'dict'>
 ```
+---
+## Types of variables
+### Description
+A variable is a space in a storage system that receives an **identifier** and holds information that is either known or unknown. In other words, a variable can be seen as a box where we store and exchange data of specific types.
+
+![Variables example](img/variables-ex.png)
+
+### Variable Declaration
+In Python, when declaring a variable, we do not need to specify the type of data we are going to store in it, unlike in other programming languages.
+#### Examples:
+```python
+box1 = "Hello"
+box2 = 18
+box3 = 18.1
+box4 = True
+```
+![Types of variables](img/typesofvariable.png)
+
+As we see in the code, first the name of the variable is written, followed by the operator `=` (which in these cases is an assignment operator, not an equals sign), and then the data that it will store. Depending on the data we store in it, Python will determine the type of the variable.
+
+### Syntax
+**If the data to be stored is an `string`, remember that it must be enclosed in quotation marks!**
+
+You should always first indicate the name of the variable and then its content, like this:
+```python
+num = 17
+```
+Variable names are sequences of letters and numbers, either uppercase or lowercase, but **always starting with a letter**. A variable should **never contain spaces**; to separate words, we can use an underscore `_`.
+
+### Types of variables
+There are 3 most common types of variables:
+
+- **Numeric:** Store numbers; within this category, we can find subtypes such as `int`, `float`, `long`, and `complex`.
+- **Text:** These are the classic variables that store strings of text as `string` and `char`.
+- **Boolean:** Store a value of True or False as `bool`.
+
+But in Python, variables can also be *lists*, *dictionaries*, *tuples* (which we will cover later). Almost anything can be stored in them.
+
+### `type()` function
+You can determine the type of a variable using the built-in type() function, which allows you to know the type of a variable at a specific moment.
+To call the type() function, simply write the function in the interpreter and pass the name of the variable as a parameter within the parentheses, like this:
+```python
+box1 = "Hello"
+type(box1)
+```
+**Console:**
+```console
+<class 'str'>
+```
+When you run the program, it will return the type of the variable.
+```python
+box1 = "Hello"
+box2 = 18
+box3 = 18.1
+box4 = True
+
+print(type(box1))
+print(type(box2))
+print(type(box3))
+print(type(box4))
+```
+**Console:**
+```console
+<class 'str'>
+<class 'int'>
+<class 'float'>
+<class 'bool'>
+```
+### Memory size of data types
+Each variable type occupies a space in memory, which is the number of bytes it needs to store its value. The number of bytes a data type occupies depends on the value and the type of data.
+
+- **int**: In Python 3, an integer typically occupies 28 bytes for small values. The size increases depending on how large the number is.
+- **float**: A floating-point number usually takes up 24 bytes.
+- **str**: The memory size of a string depends on the length of the text and the encoding used. For example, an empty string occupies 49 bytes, but it grows based on the number of characters.
+- **bool**: A boolean variable takes up 24 bytes.
+
+These sizes may vary in different Python implementations, as the language optimizes memory usage depending on the platform.
+
+#### What does this mean?
+Every time we declare a variable, Python reserves space in memory to store its value. The number of bytes in memory refers to how much capacity that variable is using in the system to be stored and manipulated. For example, a small `int` variable may take up 28 bytes, but as the value of that integer increases, the number of bytes needed to store it also grows.
